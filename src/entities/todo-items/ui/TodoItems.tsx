@@ -28,7 +28,10 @@ export const TodoItems = memo(({ todo, onToggle }: ITodoItemsProps) => {
 					{todo.title}
 				</p>
 				{todo.completed && (
-					<span className="absolute top-1/2 left-0 h-0.5 bg-gray-400 transform -translate-y-1/2 transition-all duration-500 ease-out w-0 group-hover:w-full" />
+					<span
+						data-testid="line"
+						className="absolute top-1/2 left-0 h-0.5 bg-gray-400 transform -translate-y-1/2 transition-all duration-500 ease-out w-0 group-hover:w-full"
+					/>
 				)}
 			</div>
 		</li>
