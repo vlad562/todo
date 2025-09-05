@@ -1,7 +1,7 @@
-import { ListDo } from "@/widgets/list-do";
+import { AppRouter } from "@/app/router"
 
 function App() {
-	return <ListDo />;
+	return <AppRouter />
 }
 
-export default App;
+export default App
