@@ -6,7 +6,7 @@ import { BottomPanelTodo } from "@/features/bottom-panel-todo/ui/BottomPanelTodo
 import { AddTodo } from "@/features/add-todo"
 
 export const ListDo = () => {
-	const { addTodo, todos, toggleTodo, deleteCompleted } = useTodos()
+	const { addTodo, todos, toggleTodo, deleteCompleted, deleteTodo } = useTodos()
 	const [active, setActive] = useState<stateTodo>("All")
 	const [open, setOpen] = useState(false)
 
@@ -23,8 +23,8 @@ export const ListDo = () => {
 	return (
 		<div className="w-full bg-[#fefefe] shadow-2xl">
 			<AddTodo
+				open={open}
 				addTodo={addTodo}
-                open={open}
 				setOpen={setOpen}
 			/>
 
@@ -38,8 +38,9 @@ export const ListDo = () => {
 				{filteredTodos.map(todo => (
 					<TodoItems
 						key={todo.id}
-						onToggle={toggleTodo}
 						todo={todo}
+						onToggle={toggleTodo}
+						deleteTodo={deleteTodo}
 					/>
 				))}
 			</ul>

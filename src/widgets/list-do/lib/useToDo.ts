@@ -13,16 +13,17 @@ export const useTodos = () => {
 		setTodos(prev => [{ id: uuidv4(), title, completed: false }, ...prev])
 	}, [])
 
-    // faster function change state todo
+	// faster function change state todo
 	const toggleTodo = useCallback((id: string) => {
 		setTodos(prev =>
-			prev.map(
-				todo =>
-					todo.id === id
-						? { ...todo, completed: !todo.completed }
-						: todo 
+			prev.map(todo =>
+				todo.id === id ? { ...todo, completed: !todo.completed } : todo
 			)
 		)
+	}, [])
+
+	const deleteTodo = useCallback((id: string) => {
+		setTodos(prev => prev.filter(todo => todo.id !== id))
 	}, [])
 
 	const deleteCompleted = useCallback(() => {
@@ -35,7 +36,8 @@ export const useTodos = () => {
 			addTodo,
 			toggleTodo,
 			deleteCompleted,
+			deleteTodo,
 		}),
-		[todos, addTodo, toggleTodo, deleteCompleted]
+		[todos, addTodo, toggleTodo, deleteCompleted, deleteTodo]
 	)
 }

@@ -6,5 +6,6 @@ export interface Todo {
 
 export interface ITodoItemsProps {
 	todo: Todo
+	deleteTodo: (id: string) => void
 	onToggle: (id: string) => void
 }
